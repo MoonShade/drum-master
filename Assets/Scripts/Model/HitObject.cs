@@ -7,44 +7,24 @@ namespace Assets.Scripts.Model
 {
     public class HitObject
     {
-        public int X { get; set; }
-        public int Y { get; set; }
+
         public int Time { get; set; }
-        //public float SliderLength { get; set; }
-        //public int SliderObjects { get; set; }
-        /* TYPE:
-        * Normal = 1,
-        * Slider = 2,
-        * NewCombo = 4,
-        * NormalNewCombo = 5,
-        * SliderNewCombo = 6,
-        * Spinner = 8,
-        * ColourHax = 112,
-        * Hold = 128,
-        * ManiaLong = 128
-        */
-        private int type;
+        public enum TriggerType { LEFT, RIGHT, BOTH }
+        public TriggerType Trigger { get; set; }
 
-        /* HITSOUND:
-         * None = 0,
-         * Normal = 1,
-         * Whistle = 2,
-         * Finish = 4,
-         * Clap = 8
-         */
-        private int hitsound;
+        // TODO: weiter machen ab hier
 
-        public bool IsLeft()
+        public bool IsClickedLeft()
         {
             return (hitsound == 0 || hitsound == 1);
         }
 
-        public bool IsRight()
+        public bool IsClickedRight()
         {
-            return !IsLeft() && !IsLeftRight();
+            return !IsClickedLeft() && !IsClickedBoth();
         }
 
-        public bool IsLeftRight()
+        public bool IsClickedBoth()
         {
             return (hitsound == 4 || hitsound == 6 || hitsound == 12);
         }

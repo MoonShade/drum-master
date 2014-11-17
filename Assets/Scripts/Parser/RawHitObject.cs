@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Parser
 {
-    public class HitObject
-    {
+	class RawHitObject
+	{
+        /* coordinates from the osu! file, ignore them for now. */
         public int X { get; set; }
         public int Y { get; set; }
+
         public int Time { get; set; }
-        public float SliderLength { get; set; }
-        public int SliderObjects { get; set; }
+        //public float SliderLength { get; set; }
+        //public int SliderObjects { get; set; }
         /* TYPE:
         * Normal = 1,
         * Slider = 2,
@@ -34,13 +36,19 @@ namespace Assets.Scripts
          */
         private int hitsound;
 
-        public bool isLeft()
+        public bool IsClickedLeft()
         {
-            return (hitsound == 0 || hitsound == 1 || hitsound == 1);
+            return (hitsound == 0 || hitsound == 1);
         }
-        public bool isRight()
+
+        public bool IsClickedRight()
         {
-            return !isLeft();
+            return !IsClickedLeft() && !IsClickedBoth();
+        }
+
+        public bool IsClickedBoth()
+        {
+            return (hitsound == 4 || hitsound == 6 || hitsound == 12);
         }
 
         public HitObject(int x, int y, int time, int type, int hitsound)
@@ -54,7 +62,7 @@ namespace Assets.Scripts
 
         public bool IsSlider()
         {
-            return type == 2 || type == 4;
+            return type == 2 || type == 6;
         }
-    }
+	}
 }

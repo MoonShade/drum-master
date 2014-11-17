@@ -5,7 +5,10 @@ using System.Text;
 
 namespace Assets.Scripts.Model
 {
-	interface Interface1
+	class SliderObject : HitObject
 	{
+        public int EndTime { get; set; }
+
+
 	}
 }
