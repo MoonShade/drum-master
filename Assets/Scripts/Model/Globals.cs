@@ -9,6 +9,6 @@ public class Globals{
 
     public static GameMode Mode = GameMode.MAINMENU;
 
-    public static string CurrentSongFolderName = "";
+    public static string CurrentSongFolderPath = "C:/UnityProjekte/Drum Master/drum-master/Assets/Resources/Songs/35629 Bomfunk MC's - Freestyler";
 
 }

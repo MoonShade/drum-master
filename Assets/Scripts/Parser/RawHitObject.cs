@@ -12,8 +12,8 @@ namespace Assets.Scripts.Parser
         public int Y { get; set; }
 
         public int Time { get; set; }
-        //public float SliderLength { get; set; }
-        //public int SliderObjects { get; set; }
+        public float SliderLength { get; set; }
+        public int SliderObjects { get; set; }
         /* TYPE:
         * Normal = 1,
         * Slider = 2,
@@ -51,7 +51,7 @@ namespace Assets.Scripts.Parser
             return (hitsound == 4 || hitsound == 6 || hitsound == 12);
         }
 
-        public HitObject(int x, int y, int time, int type, int hitsound)
+        public RawHitObject(int x, int y, int time, int type, int hitsound)
         {
             this.X = x;
             this.Y = y;

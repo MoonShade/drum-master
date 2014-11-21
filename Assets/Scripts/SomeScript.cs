@@ -3,6 +3,7 @@ using System.Collections;
 using Assets.Scripts;
 using System.Diagnostics;
 using UnityEditor;
+using Assets.Scripts.Model;
 
 public class SomeScript : MonoBehaviour {
 
@@ -85,7 +86,7 @@ public class SomeScript : MonoBehaviour {
             }
 
             // if hitObject is a slider
-            if (hitObject.IsSlider())
+            /*if (hitObject.IsSlider())
             {
                 // calculate time of additional hitobjects
                 int timeToNextObject = (int)((hitObject.SliderLength * 600f) / (activeTimingPoint.BPM * activeTimingPoint.Multiplier * songObject.SliderVelocity));
@@ -97,7 +98,7 @@ public class SomeScript : MonoBehaviour {
                     songObject.GetHitObjects().Insert(0, newHitObject);
                     UnityEngine.Debug.Log("insert additional hitobject at: " + newHitObject.Time);
                 }
-            }
+            }*/
         }
         else
         {

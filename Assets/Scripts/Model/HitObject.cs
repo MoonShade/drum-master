@@ -11,36 +11,18 @@ namespace Assets.Scripts.Model
         public int Time { get; set; }
         public enum TriggerType { LEFT, RIGHT, BOTH }
         public TriggerType Trigger { get; set; }
+        public int Volume { get; set; }
+        public HitsoundType HType { get; set; }
 
         // TODO: weiter machen ab hier
 
-        public bool IsClickedLeft()
+        public HitObject(int time, TriggerType triggerType, int volume, HitsoundType hitsoundType)
         {
-            return (hitsound == 0 || hitsound == 1);
-        }
-
-        public bool IsClickedRight()
-        {
-            return !IsClickedLeft() && !IsClickedBoth();
-        }
-
-        public bool IsClickedBoth()
-        {
-            return (hitsound == 4 || hitsound == 6 || hitsound == 12);
-        }
-
-        public HitObject(int x, int y, int time, int type, int hitsound)
-        {
-            this.X = x;
-            this.Y = y;
             this.Time = time;
-            this.type = type;
-            this.hitsound = hitsound;
+            this.Trigger = triggerType;
+            this.Volume = volume;
+            this.HType = hitsoundType;
         }
 
-        public bool IsSlider()
-        {
-            return type == 2 || type == 6;
-        }
     }
 }
