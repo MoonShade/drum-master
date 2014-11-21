@@ -25,8 +25,7 @@ namespace Assets.Scripts
             hitObjects.Add(hitObject);
         }
 
-        public List<HitObject> GetHitObjects()
-        {
+        public List<HitObject> GetHitObjects(){
             return hitObjects;
         }
 
