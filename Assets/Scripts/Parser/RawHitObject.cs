@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.Scripts.Parser
 {
-	class RawHitObject
+	public class RawHitObject
 	{
         /* coordinates from the osu! file, ignore them for now. */
         public int X { get; set; }

@@ -112,7 +112,7 @@ namespace Assets.Scripts.Parser
                             timingPoint.Multiplier = 1f;
                         }
                         timingPoint.Quarters = int.Parse(lineParts[2]);
-                        timingPoint.HType = (Assets.Scripts.TimingPoint.HitsoundType)System.Enum.Parse(Assets.Scripts.TimingPoint.HitsoundType.Normal.GetType(), lineParts[3], true);
+                        timingPoint.HType = (HitsoundType)System.Enum.Parse(HitsoundType.Normal.GetType(), lineParts[3], true);
                         timingPoint.Volume = int.Parse(lineParts[5]);
                         timingPoint.IsChorus = ParseToBool(lineParts[7]);
                         song.AddTimingPoint(timingPoint);

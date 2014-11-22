@@ -143,7 +143,7 @@ public class LevelBuilder : MonoBehaviour {
                             timingPoint.Multiplier = 1f;
                         }
                         timingPoint.Quarters = int.Parse(lineParts[2]);
-                        timingPoint.HType = (Assets.Scripts.TimingPoint.HitsoundType)System.Enum.Parse(Assets.Scripts.TimingPoint.HitsoundType.Normal.GetType(), lineParts[3], true);
+                        timingPoint.HType = (HitsoundType)System.Enum.Parse(HitsoundType.Normal.GetType(), lineParts[3], true);
                         timingPoint.Volume = int.Parse(lineParts[5]);
                         timingPoint.IsChorus = ParseToBool(lineParts[7]);
                         //timingPoint.Debug();
@@ -180,7 +180,7 @@ public class LevelBuilder : MonoBehaviour {
                         int hitsound = int.Parse(lineParts[4]);
 
                         RawHitObject hitObject = new RawHitObject(x, y, time, type, hitsound);
-                        song.AddHitObject(hitObject);
+                        song.AddRawHitObject(hitObject);
                         //Debug.Log("added hitboject");
 
                         if (type == 2 || type == 6)
