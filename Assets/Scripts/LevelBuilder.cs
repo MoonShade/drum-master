@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Assets.Scripts;
 using System.IO;
 using System;
+using Assets.Scripts.Model;
+using Assets.Scripts.Parser;
 
 public class LevelBuilder : MonoBehaviour {
 
@@ -177,7 +179,7 @@ public class LevelBuilder : MonoBehaviour {
                         int type = int.Parse(lineParts[3]);
                         int hitsound = int.Parse(lineParts[4]);
 
-                        HitObject hitObject = new HitObject(x, y, time, type, hitsound);
+                        RawHitObject hitObject = new RawHitObject(x, y, time, type, hitsound);
                         song.AddHitObject(hitObject);
                         //Debug.Log("added hitboject");
 
@@ -203,7 +205,7 @@ public class LevelBuilder : MonoBehaviour {
                             for (int a = 0; a < repeats; a++)
                             {
                                 time += (int)(float.Parse(lineParts[7]) * 3.2);
-                                hitObject = new HitObject(x, y, time, type, hitsound);
+                                hitObject = new RawHitObject(x, y, time, type, hitsound);
                                 song.AddHitObject(hitObject);
                                 Debug.Log("added hitboject");
                             }*/

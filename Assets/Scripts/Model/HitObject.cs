@@ -7,60 +7,22 @@ namespace Assets.Scripts.Model
 {
     public class HitObject
     {
-        public int X { get; set; }
-        public int Y { get; set; }
+
         public int Time { get; set; }
-        //public float SliderLength { get; set; }
-        //public int SliderObjects { get; set; }
-        /* TYPE:
-        * Normal = 1,
-        * Slider = 2,
-        * NewCombo = 4,
-        * NormalNewCombo = 5,
-        * SliderNewCombo = 6,
-        * Spinner = 8,
-        * ColourHax = 112,
-        * Hold = 128,
-        * ManiaLong = 128
-        */
-        private int type;
+        public enum TriggerType { LEFT, RIGHT, BOTH }
+        public TriggerType Trigger { get; set; }
+        public int Volume { get; set; }
+        public HitsoundType HType { get; set; }
 
-        /* HITSOUND:
-         * None = 0,
-         * Normal = 1,
-         * Whistle = 2,
-         * Finish = 4,
-         * Clap = 8
-         */
-        private int hitsound;
+        // TODO: weiter machen ab hier
 
-        public bool IsLeft()
+        public HitObject(int time, TriggerType triggerType, int volume, HitsoundType hitsoundType)
         {
-            return (hitsound == 0 || hitsound == 1);
-        }
-
-        public bool IsRight()
-        {
-            return !IsLeft() && !IsLeftRight();
-        }
-
-        public bool IsLeftRight()
-        {
-            return (hitsound == 4 || hitsound == 6 || hitsound == 12);
-        }
-
-        public HitObject(int x, int y, int time, int type, int hitsound)
-        {
-            this.X = x;
-            this.Y = y;
             this.Time = time;
-            this.type = type;
-            this.hitsound = hitsound;
+            this.Trigger = triggerType;
+            this.Volume = volume;
+            this.HType = hitsoundType;
         }
 
-        public bool IsSlider()
-        {
-            return type == 2 || type == 6;
-        }
     }
 }

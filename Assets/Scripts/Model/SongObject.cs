@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Scripts.Parser;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Model
 {
     public class SongObject
     {
 
         private List<HitObject> hitObjects = new List<HitObject>();
+        private List<RawHitObject> rawHitObjects = new List<RawHitObject>();
         private List<TimingPoint> timingPoints = new List<TimingPoint>();
         public string AudioFilePath { get; set; }
         public string ImageFilePath { get; set; }
@@ -28,6 +30,16 @@ namespace Assets.Scripts
         public List<HitObject> GetHitObjects()
         {
             return hitObjects;
+        }
+
+        public void AddRawHitObject(RawHitObject hitObject)
+        {
+            rawHitObjects.Add(hitObject);
+        }
+
+        public List<RawHitObject> GetRawHitObjects()
+        {
+            return rawHitObjects;
         }
 
         public void AddTimingPoint(TimingPoint timingPoint)
